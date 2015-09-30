@@ -10,6 +10,7 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 from edxmako.shortcuts import render_to_response
+from ipware.ip import get_ip
 
 from track import tracker
 from track import contexts
@@ -89,7 +90,8 @@ def server_track(request, event_type, event, page=None):
     # define output:
     event = {
         "username": username,
-        "ip": _get_request_header(request, 'REMOTE_ADDR'),
+        "ip": None,
+        "remote_addr": _get_request_header(request, 'REMOTE_ADDR'),
         "referer": _get_request_header(request, 'HTTP_REFERER'),
         "accept_language": _get_request_header(request, 'HTTP_ACCEPT_LANGUAGE'),
         "event_source": "server",
