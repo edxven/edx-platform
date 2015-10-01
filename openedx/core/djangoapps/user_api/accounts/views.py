@@ -163,6 +163,7 @@ class AccountView(APIView):
         try:
             with transaction.commit_on_success():
                 update_account_settings(request.user, request.data, username=username)
+                account_settings = get_account_settings(request, username)
         except UserNotAuthorized:
             return Response(status=status.HTTP_403_FORBIDDEN if request.user.is_staff else status.HTTP_404_NOT_FOUND)
         except UserNotFound:
@@ -178,4 +179,4 @@ class AccountView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(account_settings)
