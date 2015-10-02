@@ -325,7 +325,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
                   "Advanced Module List": 1,
                   "Discussion Topic Mapping": 1,
                   "Maximum Attempts": '"string"',
-                  "Course Announcement Date": '"string"',
+                  "Course Advertised Start Date": '"string"',
                   }
 
         self.set_wrong_inputs_to_fields()
@@ -374,7 +374,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
             "Advanced Module List": self.advanced_settings.get('Advanced Module List'),
             "Discussion Topic Mapping": self.advanced_settings.get('Discussion Topic Mapping'),
             "Maximum Attempts": self.advanced_settings.get('Maximum Attempts'),
-            "Course Announcement Date": self.advanced_settings.get('Course Announcement Date'),
+            "Course Advertised Start Date": self.advanced_settings.get('Course Advertised Start Date'),
         }
 
     def set_wrong_inputs_to_fields(self):
@@ -387,7 +387,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
                 "Advanced Module List": 1,
                 "Discussion Topic Mapping": 1,
                 "Maximum Attempts": '"string"',
-                "Course Announcement Date": '"string"',
+                "Course Advertised Start Date": '"string"',
             }
         )
 
