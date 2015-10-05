@@ -306,7 +306,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
         # Let modal popup
         self.advanced_settings.wait_for_modal_load()
 
-        # Press Undo Changes button
+        # Click Undo Changes button
         self.advanced_settings.undo_changes_via_modal()
 
         # Check that changes are undone
@@ -325,7 +325,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
                   "Advanced Module List": 1,
                   "Discussion Topic Mapping": 1,
                   "Maximum Attempts": '"string"',
-                  "Course Advertised Start Date": '"string"',
+                  "Course Announcement Date": '"string"',
                   }
 
         self.set_wrong_inputs_to_fields()
@@ -337,8 +337,6 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
 
         # Iterate through the wrong values and make sure they're still displayed
         for key, val in inputs.iteritems():
-            print self.advanced_settings.get(key)
-            print val
             self.assertEquals(
                 str(self.advanced_settings.get(key)),
                 str(val),
@@ -374,7 +372,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
             "Advanced Module List": self.advanced_settings.get('Advanced Module List'),
             "Discussion Topic Mapping": self.advanced_settings.get('Discussion Topic Mapping'),
             "Maximum Attempts": self.advanced_settings.get('Maximum Attempts'),
-            "Course Advertised Start Date": self.advanced_settings.get('Course Advertised Start Date'),
+            "Course Announcement Date": self.advanced_settings.get('Course Announcement Date'),
         }
 
     def set_wrong_inputs_to_fields(self):
@@ -387,7 +385,7 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
                 "Advanced Module List": 1,
                 "Discussion Topic Mapping": 1,
                 "Maximum Attempts": '"string"',
-                "Course Advertised Start Date": '"string"',
+                "Course Announcement Date": '"string"',
             }
         )
 

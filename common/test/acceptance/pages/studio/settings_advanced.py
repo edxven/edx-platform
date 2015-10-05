@@ -52,7 +52,9 @@ class AdvancedSettingsPage(CoursePage):
         """
         Trigger clicking event of the undo changes button in the modal.
         Wait for the undoing process to load via ajax call.
+        Before that Scroll so the button is clickable on specific browsers (like Chrome)
         """
+        self.browser.execute_script("window.scrollTo(0, 500)")
         self.q(css=UNDO_BUTTON_SELECTOR).click()
         self.wait_for_ajax()
 
@@ -60,7 +62,9 @@ class AdvancedSettingsPage(CoursePage):
         """
         Trigger click event of the manual changes button in the modal.
         No need to wait for any ajax.
+        Before that Scroll so the button is clickable on specific browsers (like Chrome)
         """
+        self.browser.execute_script("window.scrollTo(0, 500)")
         self.q(css=MANUAL_BUTTON_SELECTOR).click()
 
     def is_validation_modal_present(self):
